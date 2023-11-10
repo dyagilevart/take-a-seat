@@ -13,6 +13,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: powershell allow...
+      shell: cmd
+      run: powershell -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser"
+    - name: check powershell version
+      run: $host.Version
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
