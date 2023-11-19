@@ -1,7 +1,7 @@
-import { Test, TestingModule } from 'take-a-seat/node_modules/@nestjs/testing';
-import { INestApplication } from 'take-a-seat/node_modules/@nestjs/common';
-import * as request from 'take-a-seat/node_modules/@types/supertest';
-import { AppModule } from '../take-a-seat/src/app.module';
+import { Test, TestingModule } from 'node_modules/@nestjs/testing';
+import { INestApplication } from 'node_modules/@nestjs/common';
+import * as request from 'node_modules/@types/supertest';
+import { AppModule } from '../src/app.module';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;

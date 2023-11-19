@@ -1,4 +1,4 @@
-import { NestFactory } from 'take-a-seat/node_modules/@nestjs/core';
+import { NestFactory } from 'node_modules/@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {

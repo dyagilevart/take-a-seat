@@ -1,4 +1,4 @@
-import { Injectable } from 'take-a-seat/node_modules/@nestjs/common';
+import { Injectable } from 'node_modules/@nestjs/common';
 
 @Injectable()
 export class AppService {

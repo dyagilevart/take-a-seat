@@ -1,4 +1,4 @@
-import { Test, TestingModule } from 'take-a-seat/node_modules/@nestjs/testing';
+import { Test, TestingModule } from 'node_modules/@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 

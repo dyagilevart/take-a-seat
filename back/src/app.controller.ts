@@ -1,4 +1,4 @@
-import { Controller, Get } from 'take-a-seat/node_modules/@nestjs/common';
+import { Controller, Get } from 'node_modules/@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
