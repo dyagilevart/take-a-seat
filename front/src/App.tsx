@@ -1,5 +1,5 @@
 
-import { PSBMap } from 'components/PSBMap/PSBMap.tsx';
+import { PSBMap } from 'components/PSBMap';
 import { StyledApp } from './App.style';
 
 function App() {
