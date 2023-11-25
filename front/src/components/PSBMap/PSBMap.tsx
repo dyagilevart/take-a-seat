@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 export const PSBMap: FC = () => {
   return (
-    <TransformWrapper>
+    <TransformWrapper initialScale={0.5}>
       <TransformComponent>
         <img src={map} alt='test' />
       </TransformComponent>
