@@ -1,12 +1,13 @@
 import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { StyledWrapper } from './SvgWrapper.style';
+import { ReactSVG } from 'react-svg';
 
 interface SvgWrapperProps {
   img: string;
 }
 
-export const SvgWrapper: FC<SvgWrapperProps> = ({img}) => {
+export const SvgWrapper: FC<SvgWrapperProps> = ({ img }) => {
   const scaleUp = true;
 
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
@@ -75,15 +76,23 @@ export const SvgWrapper: FC<SvgWrapperProps> = ({img}) => {
           initialScale={imageScale}
           minScale={imageScale}
           centerOnInit
+          centerZoomedOut
         >
-          <TransformComponent
-            wrapperStyle={{
-              width: '100%',
-              height: '100%',
-            }}
-          >
-            <img src={img} alt='psb-map' />
-          </TransformComponent>
+          {(utils) => (
+            <TransformComponent
+              wrapperStyle={{
+                width: '100%',
+                height: '100%',
+              }}
+            >
+              <ReactSVG
+                src={img}
+                afterInjection={(svg) => {
+                  utils.centerView();
+                }}
+              />
+            </TransformComponent>
+          )}
         </TransformWrapper>
       )}
     </StyledWrapper>
