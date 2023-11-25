@@ -5,12 +5,15 @@ import { ReactSVG } from 'react-svg';
 
 interface SvgWrapperProps {
   img: string;
+  onInit: (svg: SVGSVGElement) => void;
 }
 
-export const SvgWrapper: FC<SvgWrapperProps> = ({ img }) => {
+export const SvgWrapper: FC<SvgWrapperProps> = ({ img, onInit }) => {
   const scaleUp = true;
 
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
+
+  const [isInit, setIsInit] = useState(false);
 
   const [containerWidth, setContainerWidth] = useState<number>(0);
   const [containerHeight, setContainerHeight] = useState<number>(0);
@@ -89,6 +92,7 @@ export const SvgWrapper: FC<SvgWrapperProps> = ({ img }) => {
                 src={img}
                 afterInjection={(svg) => {
                   utils.centerView();
+                  onInit && onInit(svg);
                 }}
               />
             </TransformComponent>
