@@ -75,12 +75,7 @@ export const SvgWrapper: FC<SvgWrapperProps> = ({ img, onInit }) => {
   return (
     <StyledWrapper ref={(el: HTMLDivElement | null) => setContainer(el)}>
       {imageScale > 0 && (
-        <TransformWrapper
-          initialScale={imageScale}
-          minScale={imageScale}
-          centerOnInit
-          centerZoomedOut
-        >
+        <TransformWrapper initialScale={imageScale} minScale={imageScale}>
           {(utils) => (
             <TransformComponent
               wrapperStyle={{
@@ -91,7 +86,10 @@ export const SvgWrapper: FC<SvgWrapperProps> = ({ img, onInit }) => {
               <ReactSVG
                 src={img}
                 afterInjection={(svg) => {
-                  utils.centerView();
+                  if (!isInit) {
+                    setIsInit(true);
+                    utils.centerView();
+                  }
                   onInit && onInit(svg);
                 }}
               />
