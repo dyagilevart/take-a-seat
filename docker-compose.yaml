@@ -1,6 +1,7 @@
 version: '3.7'
 
 services:
+
   mongo:
     image: mongo
     restart: unless-stopped
@@ -10,8 +11,6 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
     ports:
       - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
-    volumes:
-      - db:/data/db
     networks:
       - backend
 
