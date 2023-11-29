@@ -1,10 +1,18 @@
-import { Module } from 'node_modules/@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { PlaceModule } from './PlaceModule/place.module';
+import databaseConfig from './config/db.config';
+import { DatabaseModule } from './DatabaseModule/database.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({
+      load: [databaseConfig],
+    }),
+    DatabaseModule,
+    PlaceModule,
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
